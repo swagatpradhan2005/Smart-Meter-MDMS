@@ -1,0 +1,26 @@
+{
+  "report_title": "Smart Meter Data Analysis - Executive Summary",
+  "generation_date": "2026-04-19",
+  "data_overview": {
+    "total_records_processed": 23750,
+    "data_quality_score": 95.0,
+    "duplicate_records_removed": 1250,
+    "null_values_handled": 500,
+    "anomalies_flagged": 948
+  },
+  "date_range": {
+    "start_date": "2021-01-01",
+    "end_date": "2021-12-31",
+    "period_days": 365
+  },
+  "power_metrics": {
+    "average_active_power_kw": 2.45,
+    "peak_power_kw": 8.67,
+    "minimum_power_kw": 0.12,
+    "standard_deviation": 1.23
+  },
+  "features_engineered": 32,
+  "total_columns": 45,
+  "processing_status": "COMPLETED",
+  "pipeline_stages_executed": 4
+}
