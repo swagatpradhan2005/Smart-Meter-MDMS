@@ -51,3 +51,4 @@ data/hdfs/
 *.tmp
 *.bak
 temp/
+.venv 
