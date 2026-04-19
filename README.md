@@ -1,6 +1,6 @@
 # Smart Meter Data Management System (MDMS)
 
-**Production-grade Data Engineering Pipeline for Smart Meter Analytics**
+**Data Engineering Pipeline for Smart Meter Analytics**
 
 > A complete end-to-end data engineering workflow demonstrating ingestion, cleaning, feature engineering, validation, storage, streaming simulation, big data processing, and analytics.
 
@@ -173,19 +173,35 @@ The pipeline is submission-ready and demonstrates:
 * **Repeatable Execution** - `python run_all.py` always works  
 * **Real Data Processing** - Actually transforms 25,000 records  
 * **Error Handling** - Comprehensive logging and fallbacks  
-* **Performance** - Completes in <2 minutes with local resources  
+* **Performance** - Completes in <2 minutes with local resources
 
 ---
 
-## Support
-
-For issues or questions, check:
-1. The execution log at `logs/run_all.log`
-2. The ARCHITECTURE.md for data flow details
-3. Individual stage outputs in `outputs/reports/`
+## Key Insights
+- [ ] Peak consumption hours across zones
+- [ ] High-load anomaly detection
+- [ ] Rolling consumption trends
+- [ ] Zone-wise efficiency comparison
+- [ ] Load volatility patterns
 
 ---
 
-**Version:** 1.0  
-**Status:** Production-ready  
-**Last Updated:** April 2026
+##  Future Improvements
+
+- [ ] Add real-time streaming with Kafka + Spark
+- [ ] Build dashboard with Power BI or Streamlit
+- [ ] Deploy on cloud using AWS or GCP
+- [ ] Add workflow scheduling with Airflow
+
+---
+
+##  Author
+
+**Swagat pradhan**
+- GitHub: [@swagatprdhan2005](https://github.com/swagatprdhan2005)
+
+---
+
+##  License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
