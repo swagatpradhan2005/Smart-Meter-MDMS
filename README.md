@@ -1,6 +1,6 @@
 # Smart Meter Data Management System (MDMS)
 
-**Production-grade Data Engineering Pipeline for Smart Meter Analytics**
+**Data Engineering Pipeline for Smart Meter Analytics**
 
 > A complete end-to-end data engineering workflow demonstrating ingestion, cleaning, feature engineering, validation, storage, streaming simulation, big data processing, and analytics.
 
