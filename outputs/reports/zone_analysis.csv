@@ -1,5 +1,0 @@
-Zone_ID,Avg_Power_kW,Max_Power_kW,Min_Power_kW,Std_Dev,Record_Count
-Zone_A,2.34,8.12,0.10,1.21,5920
-Zone_B,2.56,8.67,0.12,1.35,5890
-Zone_C,2.41,8.34,0.11,1.19,5940
-Zone_D,2.49,8.45,0.09,1.28,5000

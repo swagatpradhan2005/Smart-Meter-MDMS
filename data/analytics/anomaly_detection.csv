@@ -1,0 +1,12 @@
+Meter_ID,Zone_ID,total_readings,avg_power_kw,stddev_power_kw,high_anomalies,low_anomalies
+MTR-4450,North,2160,2.19,1.16,32,0
+MTR-4451,South,2159,2.12,1.29,38,0
+MTR-4452,East,2159,2.45,1.27,57,0
+MTR-4453,West,2159,2.28,1.24,51,0
+MTR-4454,North,2159,1.6,1.26,1,0
+MTR-4455,South,2159,2.6,1.35,99,0
+MTR-4456,East,2159,2.37,1.25,61,0
+MTR-4457,West,2159,2.35,1.27,50,0
+MTR-4458,North,2159,1.63,1.27,5,0
+MTR-4459,South,2159,2.15,1.28,41,0
+MTR-4460,East,2159,2.01,1.26,31,0

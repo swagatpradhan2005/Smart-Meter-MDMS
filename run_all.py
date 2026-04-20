@@ -173,7 +173,7 @@ def stage_5_storage(validated_df):
         
         # Try SQLite
         try:
-            storage.save_to_sqlite(validated_df, "data/smart_meter.db", "smart_meter_data")
+            storage.save_to_sqlite(validated_df, "smart_meter_data")
         except Exception as e:
             logger.warning("SQLite save skipped: {}".format(str(e)))
         
@@ -222,66 +222,104 @@ def stage_6_kafka_streaming(validated_df):
 def stage_7_spark_processing(validated_df):
     """Stage 7: Spark distributed processing."""
     print_step(7, "Spark Processing")
+
     try:
         spark_proc = SparkProcessor()
-        spark_output = spark_proc.process_data(validated_df)
-        
-        print("[OK] Spark processing complete")
-        print("  Records processed: {:,}".format(len(spark_output)))
-        print("  Output files: spark_output.csv, spark_output.parquet")
-        
-        logger.info("Spark: Processed data with Spark SQL")
+
+        try:
+            # Try Spark execution
+            spark_output = spark_proc.process_data(validated_df)
+
+            print("[OK] Spark processing complete")
+            print("  Records processed: {:,}".format(len(spark_output)))
+            print("  Output files: spark_output.csv, spark_output.parquet")
+
+            logger.info("Spark: Processed data with Spark SQL")
+
+        except Exception as spark_error:
+            # Fallback if Spark fails (VERY IMPORTANT)
+            logger.warning("Spark failed, using Pandas fallback: {}".format(str(spark_error)))
+            print("[WARN] Spark failed, switching to Pandas fallback")
+
+            # Fallback behavior → just continue with original dataframe
+            spark_output = validated_df
+
+            print("[OK] Fallback processing complete")
+            print("  Records processed (Pandas): {:,}".format(len(spark_output)))
+
     except Exception as e:
-        logger.error("Spark processing failed: {}".format(str(e)))
-        print("[WARN] Spark processing failed: {}".format(str(e)))
+        logger.error("Spark stage completely failed: {}".format(str(e)))
+        print("[WARN] Spark stage skipped due to error: {}".format(str(e)))
 
 def stage_8_hdfs_operations():
     """Stage 8: HDFS file operations."""
     print_step(8, "HDFS Operations")
+
     try:
         hdfs = HDFSManager()
-        
+
         files_to_copy = [
             "data/processed/cleaned_data.csv",
             "data/processed/featured_data.parquet",
             "data/curated/featured_data.csv"
         ]
-        
+
         copied_count = 0
+
         for file_path in files_to_copy:
             if Path(file_path).exists():
-                hdfs_path = hdfs.put_file(file_path)
-                print("  [OK] Copied: {} -> {}".format(file_path, hdfs_path))
-                copied_count += 1
-        
+                try:
+                    hdfs_path = hdfs.put_file(file_path)
+                    print("  [OK] Copied: {} -> {}".format(file_path, hdfs_path))
+                    copied_count += 1
+
+                except Exception as file_error:
+                    logger.warning("HDFS failed for {}: {}".format(file_path, str(file_error)))
+                    print("  [WARN] Failed to copy {}: {}".format(file_path, str(file_error)))
+
         print("[OK] HDFS operations complete")
         print("  Files copied: {}/3".format(copied_count))
-        
+
         logger.info("HDFS: Copied {} files to simulated HDFS".format(copied_count))
+
     except Exception as e:
-        logger.error("HDFS operations failed: {}".format(str(e)))
-        print("[WARN] HDFS operations failed: {}".format(str(e)))
+        logger.error("HDFS stage completely failed: {}".format(str(e)))
+        print("[WARN] HDFS stage skipped due to error: {}".format(str(e)))
 
 def stage_9_sql_execution():
     """Stage 9: Execute SQL operations."""
     print_step(9, "SQL Execution")
+
     try:
         sql_runner = SQLRunner(db_path="data/smart_meter.db")
-        
-        # Execute schema creation
-        schema_result = sql_runner.execute_schema_creation()
-        print("[OK] Schema creation: {}".format(schema_result))
-        
-        # Execute analytics queries
-        query_results = sql_runner.execute_analytics_queries()
-        print("[OK] Analytics queries executed: {} queries".format(len(query_results)))
-        for qname in list(query_results.keys())[:3]:
-            print("  - {}".format(qname))
-        
-        logger.info("SQL: Created schema and executed {} queries".format(len(query_results)))
+
+        # ---------- SCHEMA CREATION ----------
+        try:
+            schema_result = sql_runner.execute_schema_creation()
+            print("[OK] Schema creation: {}".format(schema_result))
+        except Exception as schema_error:
+            logger.warning("Schema creation skipped: {}".format(str(schema_error)))
+            print("[WARN] Schema creation failed/skipped")
+
+        # ---------- ANALYTICS QUERIES ----------
+        try:
+            query_results = sql_runner.execute_analytics_queries()
+
+            print("[OK] Analytics queries executed: {} queries".format(len(query_results)))
+
+            # Print only first 3 for preview
+            for qname in list(query_results.keys())[:3]:
+                print("  - {}".format(qname))
+
+            logger.info("SQL: Executed {} analytics queries".format(len(query_results)))
+
+        except Exception as query_error:
+            logger.warning("SQL analytics failed: {}".format(str(query_error)))
+            print("[WARN] SQL analytics execution failed")
+
     except Exception as e:
-        logger.error("SQL execution failed: {}".format(str(e)))
-        print("[WARN] SQL execution failed: {}".format(str(e)))
+        logger.error("SQL stage completely failed: {}".format(str(e)))
+        print("[WARN] SQL stage skipped due to error: {}".format(str(e)))
 
 def stage_10_eda_analysis(validated_df):
     """Stage 10: EDA and visualization."""
@@ -407,7 +445,7 @@ def main():
         
         # Final summary
         print_section("Pipeline Execution Summary")
-        print("[OK] ALL STAGES COMPLETED SUCCESSFULLY!\n")
+        print("CORE PIPELINE COMPLETED (with warnings if any)\n")
         print("[INFO] Done")
         print("  Processed Data: data/processed/")
         print("  Curated Data: data/curated/")

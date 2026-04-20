@@ -1,0 +1,5 @@
+Zone_ID,meter_count,total_readings,avg_power_kw,stddev_power_kw,peak_power_kw,min_power_kw
+West,2,4318,2.32,1.26,6.42,0.4
+South,3,6477,2.29,1.31,6.49,0.11
+East,3,6477,2.27,1.26,6.64,0.36
+North,3,6478,1.81,1.23,5.94,0.04

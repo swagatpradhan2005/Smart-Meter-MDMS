@@ -1,0 +1,5 @@
+Zone_ID,Avg_Power_kW,Max_Power_kW,Min_Power_kW,Record_Count
+West,2.32,6.42,0.4,4318
+South,2.29,6.49,0.11,6477
+East,2.27,6.64,0.36,6477
+North,1.81,5.94,0.04,6478

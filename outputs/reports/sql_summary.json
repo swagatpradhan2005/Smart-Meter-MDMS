@@ -1,0 +1,288 @@
+{
+  "generation_timestamp": "2026-04-20T19:33:05.276629",
+  "total_queries_executed": 15,
+  "successful_queries": 15,
+  "failed_queries": 0,
+  "total_outputs_generated": 15,
+  "analytics_directory": "data\\analytics",
+  "reports_directory": "outputs\\reports",
+  "generated_csv_files": [
+    {
+      "filename": "hourly_consumption.csv",
+      "rows": 8347,
+      "columns": 5
+    },
+    {
+      "filename": "daily_consumption.csv",
+      "rows": 365,
+      "columns": 6
+    },
+    {
+      "filename": "zone_analysis.csv",
+      "rows": 4,
+      "columns": 5
+    },
+    {
+      "filename": "top_consumers.csv",
+      "rows": 11,
+      "columns": 6
+    },
+    {
+      "filename": "peak_hours.csv",
+      "rows": 24,
+      "columns": 5
+    },
+    {
+      "filename": "anomaly_detection.csv",
+      "rows": 11,
+      "columns": 7
+    },
+    {
+      "filename": "power_factor_analysis.csv",
+      "rows": 11,
+      "columns": 5
+    },
+    {
+      "filename": "quarterly_growth.csv",
+      "rows": 4,
+      "columns": 5
+    },
+    {
+      "filename": "moving_avg_24h.csv",
+      "rows": 365,
+      "columns": 3
+    },
+    {
+      "filename": "rolling_avg.csv",
+      "rows": 1000,
+      "columns": 5
+    },
+    {
+      "filename": "cumulative_consumption.csv",
+      "rows": 365,
+      "columns": 3
+    },
+    {
+      "filename": "zone_statistics.csv",
+      "rows": 4,
+      "columns": 7
+    },
+    {
+      "filename": "efficiency_scores.csv",
+      "rows": 11,
+      "columns": 7
+    },
+    {
+      "filename": "consumption_spikes.csv",
+      "rows": 500,
+      "columns": 6
+    },
+    {
+      "filename": "load_volatility.csv",
+      "rows": 365,
+      "columns": 5
+    }
+  ],
+  "query_execution_summary": [
+    {
+      "query_name": "Hourly Consumption",
+      "output_file": "hourly_consumption.csv",
+      "record_count": 8347,
+      "columns": [
+        "hour_bucket",
+        "hourly_avg_power",
+        "hourly_max_power",
+        "hourly_min_power",
+        "record_count"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Daily Consumption",
+      "output_file": "daily_consumption.csv",
+      "record_count": 365,
+      "columns": [
+        "consumption_date",
+        "day_name",
+        "daily_total_power",
+        "daily_avg_power",
+        "peak_power",
+        "min_power"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Zone Analysis",
+      "output_file": "zone_analysis.csv",
+      "record_count": 4,
+      "columns": [
+        "Zone_ID",
+        "Avg_Power_kW",
+        "Max_Power_kW",
+        "Min_Power_kW",
+        "Record_Count"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Top Consumers",
+      "output_file": "top_consumers.csv",
+      "record_count": 11,
+      "columns": [
+        "Meter_ID",
+        "Zone_ID",
+        "record_count",
+        "avg_power_kw",
+        "peak_power_kw",
+        "total_power_kwh"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Peak Hours Analysis",
+      "output_file": "peak_hours.csv",
+      "record_count": 24,
+      "columns": [
+        "hour_of_day",
+        "record_count",
+        "avg_power_during_hour",
+        "max_power_during_hour",
+        "period_classification"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Anomaly Detection",
+      "output_file": "anomaly_detection.csv",
+      "record_count": 11,
+      "columns": [
+        "Meter_ID",
+        "Zone_ID",
+        "total_readings",
+        "avg_power_kw",
+        "stddev_power_kw",
+        "high_anomalies",
+        "low_anomalies"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Power Factor Analysis",
+      "output_file": "power_factor_analysis.csv",
+      "record_count": 11,
+      "columns": [
+        "Meter_ID",
+        "avg_power_factor",
+        "max_power_factor",
+        "min_power_factor",
+        "reading_count"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Quarterly Growth",
+      "output_file": "quarterly_growth.csv",
+      "record_count": 4,
+      "columns": [
+        "year",
+        "quarter",
+        "quarterly_consumption",
+        "avg_power_kw",
+        "reading_count"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Moving Average 24h",
+      "output_file": "moving_avg_24h.csv",
+      "record_count": 365,
+      "columns": [
+        "date",
+        "daily_avg",
+        "readings_per_day"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Rolling Average",
+      "output_file": "rolling_avg.csv",
+      "record_count": 1000,
+      "columns": [
+        "reading_date",
+        "Meter_ID",
+        "hourly_avg",
+        "hourly_max",
+        "hourly_min"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Cumulative Consumption",
+      "output_file": "cumulative_consumption.csv",
+      "record_count": 365,
+      "columns": [
+        "reading_date",
+        "daily_consumption",
+        "cumulative_consumption"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Zone Statistics",
+      "output_file": "zone_statistics.csv",
+      "record_count": 4,
+      "columns": [
+        "Zone_ID",
+        "meter_count",
+        "total_readings",
+        "avg_power_kw",
+        "stddev_power_kw",
+        "peak_power_kw",
+        "min_power_kw"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Efficiency Scores",
+      "output_file": "efficiency_scores.csv",
+      "record_count": 11,
+      "columns": [
+        "Meter_ID",
+        "Zone_ID",
+        "total_readings",
+        "avg_power",
+        "avg_reactive",
+        "avg_power_factor",
+        "efficiency_score"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Consumption Spikes",
+      "output_file": "consumption_spikes.csv",
+      "record_count": 500,
+      "columns": [
+        "Meter_ID",
+        "Zone_ID",
+        "spike_date",
+        "peak_power",
+        "avg_power_that_day",
+        "spike_magnitude"
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "query_name": "Load Volatility",
+      "output_file": "load_volatility.csv",
+      "record_count": 365,
+      "columns": [
+        "reading_date",
+        "daily_volatility",
+        "daily_avg",
+        "daily_peak",
+        "readings"
+      ],
+      "status": "SUCCESS"
+    }
+  ]
+}
