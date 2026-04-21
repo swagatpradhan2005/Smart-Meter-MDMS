@@ -41,8 +41,6 @@ logs/
 
 # Data (keep git ignored for input but not this repo)
 # data/raw/*.csv  # Keep sample data
-data/processed/
-data/curated/
 data/stream/
 data/hdfs/
 *.db
