@@ -50,3 +50,7 @@ data/hdfs/
 *.bak
 temp/
 .venv 
+
+!data/processed/
+!data/curated/
+!data/analytics/
