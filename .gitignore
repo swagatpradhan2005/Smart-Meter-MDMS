@@ -39,18 +39,18 @@ wheels/
 *.log
 logs/
 
-# Data (keep git ignored for input but not this repo)
-# data/raw/*.csv  # Keep sample data
+# Data
 data/stream/
 data/hdfs/
 *.db
+
+# Allow these folders
+!data/processed/
+!data/curated/
+!data/analytics/
 
 # Temporary
 *.tmp
 *.bak
 temp/
 .venv 
-
-!data/processed/
-!data/curated/
-!data/analytics/
