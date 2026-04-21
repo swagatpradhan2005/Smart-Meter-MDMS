@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-04-19T14:53:28.210016",
+  "file_path": "c:\\Smart Meter Data Systems\\data\\raw\\raw_smart_meter.csv",
+  "total_records": 25000,
+  "total_columns": 12,
+  "columns": [
+    "Timestamp",
+    "Meter_ID",
+    "Zone_ID",
+    "Voltage_V",
+    "Current_A",
+    "Active_Power_kW",
+    "Reactive_Power_kW",
+    "Apparent_Power_kVA",
+    "Frequency_Hz",
+    "Sub_Meter_Kitchen",
+    "Sub_Meter_HVAC",
+    "Outdoor_Temp_C"
+  ],
+  "data_types": {
+    "Timestamp": "datetime64[us]",
+    "Meter_ID": "str",
+    "Zone_ID": "str",
+    "Voltage_V": "float64",
+    "Current_A": "float64",
+    "Active_Power_kW": "float64",
+    "Reactive_Power_kW": "float64",
+    "Apparent_Power_kVA": "float64",
+    "Frequency_Hz": "float64",
+    "Sub_Meter_Kitchen": "float64",
+    "Sub_Meter_HVAC": "float64",
+    "Outdoor_Temp_C": "float64"
+  },
+  "null_values": {
+    "Timestamp": 0,
+    "Meter_ID": 0,
+    "Zone_ID": 0,
+    "Voltage_V": 250,
+    "Current_A": 0,
+    "Active_Power_kW": 250,
+    "Reactive_Power_kW": 0,
+    "Apparent_Power_kVA": 0,
+    "Frequency_Hz": 0,
+    "Sub_Meter_Kitchen": 0,
+    "Sub_Meter_HVAC": 0,
+    "Outdoor_Temp_C": 0
+  },
+  "duplicate_records": 600,
+  "memory_mb": 4.924543380737305,
+  "numeric_columns": [
+    "Voltage_V",
+    "Current_A",
+    "Active_Power_kW",
+    "Reactive_Power_kW",
+    "Apparent_Power_kVA",
+    "Frequency_Hz",
+    "Sub_Meter_Kitchen",
+    "Sub_Meter_HVAC",
+    "Outdoor_Temp_C"
+  ],
+  "categorical_columns": [
+    "Timestamp",
+    "Meter_ID",
+    "Zone_ID"
+  ]
+}

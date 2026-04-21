@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-19T14:53:37.278159",
+  "original_records": 25000,
+  "cleaned_records": 24400,
+  "records_removed": 600,
+  "removal_percentage": 2.4,
+  "original_nulls": 500,
+  "final_nulls": 500,
+  "duplicates_removed": 600,
+  "outliers_flagged": 1108,
+  "data_quality_score": 97.6
+}
